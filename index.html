@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Microregistrar Knowledge Portal | Curriculum & Study Directory</title>
+  
+  <!-- Modern clean typography & reset -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔬</text></svg>">
+</head>
+<body>
+  <div class="app-container" id="app">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="#index" class="brand">
+          <div class="brand-icon">🔬</div>
+          <span>Microregistrar</span>
+        </a>
+        <button class="sidebar-close" id="sidebar-close" aria-label="Close sidebar">✕</button>
+      </div>
+
+      <nav class="sidebar-nav" id="sidebar-nav">
+        <!-- Generated dynamically in app.js -->
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="storage-status">
+          <span class="status-dot"></span>
+          <span>Google Sheets Ready</span>
+        </div>
+        <div style="font-size: 11px; color: #64748b; line-height: 1.4;">
+          v2026.1 • Production Web App
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Wrapper -->
+    <div class="main-wrapper">
+      
+      <!-- Top Header -->
+      <header class="top-header">
+        <div class="header-left">
+          <button class="sidebar-toggle btn-icon" id="sidebar-toggle" aria-label="Toggle navigation">☰</button>
+          <div class="global-search-container">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="global-search" class="global-search-input" placeholder="Search diseases, antibiotics, bugs, chapters across all tabs (Press '/' to search)...">
+          </div>
+        </div>
+
+        <div class="header-right">
+          <button id="theme-toggle-btn" class="btn-icon" title="Toggle Dark Mode" aria-label="Toggle Dark Mode">🌙</button>
+          <a href="https://microregistrar.moodlecloud.com/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+            <span>MoodleCloud</span>
+            <span style="font-size: 11px;">↗</span>
+          </a>
+        </div>
+      </header>
+
+      <!-- Dynamic Page Container -->
+      <main class="page-content" id="page-container">
+        <div class="state-box">
+          <div class="spinner"></div>
+          <div class="state-title">Loading Curriculum Directory...</div>
+        </div>
+      </main>
+
+    </div>
+  </div>
+
+  <!-- Reusable Add / Edit Record Modal -->
+  <div class="modal-backdrop" id="modal-backdrop">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">Record Form</h3>
+        <button class="modal-close" data-close-modal aria-label="Close modal">✕</button>
+      </div>
+      <div class="modal-body" id="modal-form-container">
+        <!-- Form elements populated dynamically -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-close-modal>Cancel</button>
+        <button type="button" class="btn btn-primary" id="modal-submit-btn">Save Changes</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts: Initial Data -> Data Access Layer -> UI Controller -->
+  <script src="assets/js/initial_data.js"></script>
+  <script src="assets/js/data_store.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
