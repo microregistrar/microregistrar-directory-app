@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Microregistrar directory</title>
+  <link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+  <div class="overlay" id="nav-overlay"></div>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#/">
+        <div class="brand-mark">M</div>
+        <div>
+          <h1>Microregistrar</h1>
+          <p>Moodlecloud directory</p>
+        </div>
+      </a>
+      <div class="nav-label">Navigate</div>
+      <nav class="nav">
+        <a href="#/">Home dashboard</a>
+        <a href="#/search">Search all records</a>
+      </nav>
+      <div class="nav-label">Spreadsheet tabs</div>
+      <nav class="nav" id="nav"></nav>
+      <div class="nav-label">Data</div>
+      <p class="small muted" style="padding:0 10px" id="source-label">Local snapshot</p>
+    </aside>
+    <div class="main">
+      <header class="topbar">
+        <button class="btn icon-btn menu-btn" id="menu-btn" type="button" aria-label="Open menu">Menu</button>
+        <div class="search-wrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3-3"/></svg>
+          <input id="global-search" type="search" placeholder="Search all tabs and press Enter">
+        </div>
+        <div class="top-actions">
+          <button class="btn" id="theme-btn" type="button">Dark</button>
+          <button class="btn" id="export-json" type="button">Export JSON</button>
+          <button class="btn" id="import-json" type="button">Import JSON</button>
+          <button class="btn" id="reset-data" type="button">Reset snapshot</button>
+        </div>
+      </header>
+      <main class="content" id="view">
+        <div class="state"><h3>Loading directory…</h3><p>Reading the local workbook snapshot.</p></div>
+      </main>
+    </div>
+  </div>
+  <div id="modal-root"></div>
+  <div class="toast" id="toast" hidden></div>
+  <input id="file-json" type="file" accept="application/json,.json" hidden>
+  <input id="file-csv" type="file" accept="text/csv,.csv" hidden>
+
+  <script>
+    window.APP_CONFIG = {
+      dataSource: "local",
+      spreadsheetId: "1XzlEPyzUM3ljxjzMrxpXLH-Pu_xTlWGC8AtrlRzp5Zw",
+      apiBase: ""
+    };
+  </script>
+  <script src="data/workbook.js"></script>
+  <script src="assets/data-layer.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
