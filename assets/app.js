@@ -787,12 +787,20 @@
       $("sidebar").classList.remove("open");
       $("nav-overlay").classList.remove("show");
     });
-    $("global-search").addEventListener("keydown", function (ev) {
-      if (ev.key === "Enter") {
-        state.query = ev.target.value;
-        location.hash = "#/search?q=" + encodeURIComponent(state.query);
+    function runGlobalSearch() {
+      state.query = $("global-search").value;
+      var next = "#/search?q=" + encodeURIComponent(state.query);
+      if (location.hash === next) {
+        state.route = { name: "search", q: state.query };
+        render();
+      } else {
+        location.hash = next;
       }
+    }
+    $("global-search").addEventListener("keydown", function (ev) {
+      if (ev.key === "Enter") runGlobalSearch();
     });
+    $("search-btn").addEventListener("click", runGlobalSearch);
     $("export-json").addEventListener("click", function () {
       download("microregistrar-workbook.json", store.exportJSON(), "application/json");
       toast("JSON exported");
